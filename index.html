@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To My Dearest Min</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+    body {
+      background-color: #fff0f5;
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    /* Floating cursive name */
+    .floating-name {
+      position: fixed;
+      top: 50%;
+      left: -200px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #ff69b4;
+      opacity: 0.7;
+      animation: floatAcross 20s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes floatAcross {
+      0% {
+        transform: translateX(0) translateY(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateX(120vw) translateY(-20px);
+        opacity: 0;
+      }
+    }
+
+    .screen {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #ffe4ec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 10;
+      transition: opacity 1s ease;
+    }
+
+    .screen h2 {
+      font-size: 2em;
+      color: #cc3366;
+      margin-bottom: 20px;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .screen button {
+      font-size: 1.2em;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff6699;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .content {
+      opacity: 0;
+      transition: opacity 1.5s ease;
+      padding: 30px;
+      text-align: center;
+      z-index: 2;
+      position: relative;
+    }
+
+    h1 {
+      color: #4169e1;
+      font-size: 2.5em;
+      margin-top: 30px;
+    }
+
+    .heart {
+      font-size: 3em;
+      color: #1e90ff;
+      animation: beat 1s infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .message {
+      max-width: 800px;
+      margin: auto;
+      text-align: left;
+      background-color: #ffffffcc;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      line-height: 1.8;
+      color: #333;
+    }
+
+    iframe {
+      display: none;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-style: italic;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Name -->
+  <div class="floating-name">Min 💖</div>
+
+  <!-- Music (Hidden Autoplay) -->
+  <iframe width="0" height="0" 
+    src="https://www.youtube.com/embed/nQHEpPZk7SU?autoplay=1&loop=1&playlist=nQHEpPZk7SU" 
+    title="Blue - YungKhai ft. Minnie" 
+    frameborder="0" allow="autoplay" allowfullscreen>
+  </iframe>
+
+  <!-- Welcome Screen -->
+  <div class="screen" id="startScreen">
+    <h2>💌 You have a message from Jake 💌</h2>
+    <button onclick="openMessage()">Open Your Surprise</button>
+  </div>
+
+  <!-- Message Content -->
+  <div class="content" id="mainContent" style="display: none;">
+    <div class="heart">💙</div>
+    <h1>Happy 1st Month Anniversary, Min</h1>
+
+    <div class="message">
+      <p>My Dearest Min,</p>
+      <p>Happy anniversary, my Sweetheart.</p>
+      <p>Looking back on everything we have shared each message, each laugh, every little moment we have stolen despite the distance I feel so grateful to have you.</p>
+      <p>You have made even the ordinary days feel like something special.<br>
+      You have been my light when I felt unsure, my calm when things were heavy, and my smile when I needed it most.<br>
+      Loving you has taught me patience, care, and how beautiful it is to be truly seen and accepted.</p>
+      <p>I still remember the first time you made my heart beat this way, and every day since then, that feeling has only grown.<br>
+      Even in moments when I felt sad or far tired, your presence always brought me back. You did not just hold my heart you understood it.</p>
+      <p>You are not just my girlfriend. You are my home, my muse, my favorite person.<br>
+      I love you more than any words i can speak and any words i can say. <br>
+      I will keep choosing you every single day, night, and forever.</p>
+      <p>Through all the highs, all the lows, and all the simple, quiet moments in between us I am yours.</p>
+      <p>here is to everything we have been through and everything we are still dreaming of together.<br>
+      I love you so so much, My Manatsanan Nanawisamphaothong. Always.</p>
+      <p>Forever yours,<br>Jake</p>
+    </div>
+
+    <footer>
+      💙 With all my love, from afar but always close.
+    </footer>
+  </div>
+
+  <script>
+    function openMessage() {
+      const screen = document.getElementById("startScreen");
+      const content = document.getElementById("mainContent");
+
+      screen.style.opacity = 0;
+
+      setTimeout(() => {
+        screen.style.display = "none";
+        content.style.display = "block";
+        window.scrollTo(0, 0);
+        document.body.style.overflowY = "auto";
+        content.style.opacity = 1;
+      }, 1000);
+    }
+
+    document.body.style.overflowY = "hidden";
+  </script>
+</body>
+</html>
