@@ -25,7 +25,7 @@
   .active {  
     display: flex;  
   }  
-  
+
   /* Animated gradient backgrounds */  
   #homeScreen {  
     background: linear-gradient(270deg, #ff9a9e, #fad0c4, #ffdde1);  
@@ -54,12 +54,12 @@
     50% {background-position:100% 50%}  
     100% {background-position:0% 50%}  
   }  
-  
+
   h1, p {  
     color: white;  
     text-shadow: 0 0 8px rgba(0,0,0,0.4);  
   }  
-  
+
   /* Floating kaomojis home */  
   .kaomoji {  
     position: absolute;  
@@ -73,7 +73,7 @@
     80% {opacity: 1;}  
     100% {transform: translateY(-10vh) scale(1); opacity: 0;}  
   }  
-  
+
   /* Password input */  
   input {  
     padding: 10px;  
@@ -88,7 +88,7 @@
   input:focus {  
     box-shadow: 0 0 20px rgba(255,105,180,0.8);  
   }  
-  
+
   button {  
     margin-top: 15px;  
     padding: 10px 20px;  
@@ -105,7 +105,7 @@
     transform: scale(1.1);  
     background: #ff3c6f;  
   }  
-  
+
   /* Letter card */  
   .letterCard {  
     background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,230,250,0.95));  
@@ -128,7 +128,7 @@
   .letterCard em {  
     color: #c77dff;  
   }  
-  
+
   /* Floating hearts */  
   .heart {  
     position: absolute;  
@@ -142,7 +142,7 @@
     70% {opacity: 1;}  
     100% {transform: translateY(-10vh) scale(1.2); opacity: 0;}  
   }  
-  
+
   /* Reveal section */  
   .revealBtn {  
     font-size: 26px;  
@@ -156,7 +156,7 @@
     50% {color: #ff3c6f;}  
     100% {color: #ff6f91;}  
   }  
-  
+
   /* Wrong Screen layout */  
   #wrongScreen .letterCard {  
     display: flex;  
@@ -173,7 +173,7 @@
     0%,100% {transform: translateY(0);}  
     50% {transform: translateY(-10px);}  
   }  
-  
+
   /* Hint text */  
   .hint {  
     margin-top: 10px;  
@@ -189,7 +189,7 @@
     <h1>Welcome My Love</h1>  
     <button onclick="showScreen(passwordScreen)">Enter</button>  
   </div>  
-  
+
   <!-- Password -->  
   <div id="passwordScreen" class="screen">  
     <h1>Enter the Password</h1>  
@@ -197,7 +197,7 @@
     <button onclick="checkPassword()">Submit</button>  
     <p class="hint">Hint: what i feel about you my love</p>  
   </div>  
-  
+
   <!-- Wrong -->  
   <div id="wrongScreen" class="screen">  
     <div class="letterCard">  
@@ -206,7 +206,7 @@
       <button onclick="showScreen(passwordScreen)">Back</button>  
     </div>  
   </div>  
-  
+
   <!-- Letter -->  
   <div id="letterScreen" class="screen">  
     <div class="letterCard">  
@@ -216,7 +216,7 @@
       <p id="letterText" style="display:none; white-space:pre-line;"></p>  
     </div>  
   </div>  
-  
+
 <script>  
 const homeScreen=document.getElementById('homeScreen');  
 const passwordScreen=document.getElementById('passwordScreen');  
@@ -226,14 +226,14 @@ function showScreen(screen){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));  
   screen.classList.add('active');  
 }  
-  
+
 // Password check  
 function checkPassword(){  
   const val=document.getElementById('passwordInput').value;  
   if(val==="iloveyoukeith"){ showScreen(letterScreen); }  
   else{ showWrong(); }  
 }  
-  
+
 // Wrong screen cats  
 const catFaces=['ฅ^•ﻌ•^ฅ♡','(=^･ω･^=)♡','(=①ω①=)♡','(=^-ω-^=)♡','ฅ^._.^ฅ♡','(=^･^=)❤','(=ↀωↀ=)❤','(=✪ᆽ✪=)❤','(Ф∀Ф)❤'];  
 let catIndex=0; let catInterval;  
@@ -246,7 +246,7 @@ function showWrong(){
     catIndex++;  
   },1000);  
 }  
-  
+
 // Letter typing  
 const letter=`My dearest Keithy  
   
@@ -268,7 +268,7 @@ I’m excited for all the days ahead, for every memory we’ll share and memorie
   
 With all my love  
 Jake`;  
-  
+
 function startLetter(){  
   document.getElementById('revealSection').style.display="none";  
   const letterText=document.getElementById('letterText');  
@@ -285,7 +285,7 @@ function startLetter(){
   type();  
   letterScreen.scrollTo({top:letterScreen.scrollHeight,behavior:"smooth"});  
 }  
-  
+
 // Floating emojis home  
 const emojis=["(=^･ω･^=)♡","ʕ•ᴥ•ʔ♡","(｡♥‿♥｡)","(✿◠‿◠)","(≧◡≦)♡","(•ө•)♡","(❁´◡`❁)","(=ＴェＴ=)♡"];  
 setInterval(()=>{  
@@ -297,7 +297,7 @@ setInterval(()=>{
   document.body.appendChild(span);  
   setTimeout(()=>span.remove(),2000);  
 },1200);  
-  
+
 // Floating hearts letter  
 setInterval(()=>{  
   const heart=document.createElement("div");  
