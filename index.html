@@ -1,146 +1,313 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anniversary Letter</title>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: "Arial", sans-serif;
-    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-    overflow: hidden;
-  }
-  .screen {
-    display: none;
-    height: 100vh;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .active {
-    display: flex;
-  }
-  .hearts {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-  }
-  .heart {
-    position: absolute;
-    color: red;
-    font-size: 24px;
-    animation: float 6s linear infinite;
-  }
-  @keyframes float {
-    from { transform: translateY(100vh) scale(1); opacity: 1; }
-    to { transform: translateY(-10vh) scale(1.5); opacity: 0; }
-  }
-  .password-box {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-  }
-  input {
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-  }
-  button {
-    padding: 10px 20px;
-    border: none;
-    background: pink;
-    border-radius: 8px;
-    margin-top: 10px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  .letter-content {
-    background: rgba(255,255,255,0.9);
-    margin: 20px;
-    padding: 20px;
-    border-radius: 12px;
-    max-height: 90vh;
-    overflow-y: auto;
-    color: #444;
-    font-size: 18px;
-    line-height: 1.6;
-  }
-</style>
-</head>
-<body>
-
-<!-- Password Screen -->
-<div id="passwordScreen" class="screen active">
-  <div class="hearts" id="hearts"></div>
-  <div class="password-box">
-    <h2>Enter the password</h2>
-    <input type="password" id="passwordInput" placeholder="What I feel for you my love">
-    <br>
-    <button onclick="checkPassword()">Submit</button>
-  </div>
-</div>
-
-<!-- Letter Screen -->
-<div id="letterScreen" class="screen">
-  <div class="hearts" id="hearts2"></div>
-  <div class="letter-content">
-    <p>My dearest Keithy</p>
-    <p>Hello :D my love Today is our anniversary
-    I actually wanna secretly hang out with you on this day, but it’s alright I might be far, but my heart is yours (•ㅅ•)♡</p>
-
-    <p>Happy anniversary to us Ever since the day I met you, my days became warmer One message led to another, and music brought us closer From the start, I felt a connection only through you, my love (｡♥‿♥｡)</p>
-
-    <p>I still remember the little beginnings with you The first time we talked, the excitement of every new message, the late night conversations where I didn’t want the night to end Our first interaction when we were both shy, our first hug, our first lunch together, our first walk, every little moment Each memory stays with me (／≧ㅅ≦)／</p>
-
-    <p>I remembered when we first admitted our feelings, I felt like my whole world changed You were not just someone I admired anymore, you were my partner Since then, I’ve learned so much about love through you I’ve seen your strength, your kindness, and the quiet ways you show your love I’ve also seen your softer sides, the moments you thought you weren’t enough, but to me you always are (˶˃ ᵕ ˂˶)</p>
-
-    <p>If I had to describe my type, it would only ever be you I love you so much You never fail to make me smile Even the smallest things you do stay with me A laugh, a glance, or a word from you can turn my day around (❀•́ ‿ •̀❀)</p>
-
-    <p>You are my muse, my love, and the only one in my heart Every day with you feels like a gift, and I will always choose you again and again When I think about our journey together, I see not only the good times but also the challenges, and I’m proud that we face them together (´ ꒳ ` ✿)</p>
-
-    <p>I’m excited for all the days ahead, for every memory we’ll share and memories we'll create in the future, more laughter, to more smiles, and more moments to treasure I’m proud of us, of the way we’ve grown, and of the love we continue to build together
-     (づ๑•ᴗ•๑)づ♡</p>
-
-    <p>With all my love<br>Jake</p>
-  </div>
-</div>
-
-<script>
-function createHearts(containerId) {
-  const container = document.getElementById(containerId);
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 15 + "px";
-    heart.style.animationDuration = 4 + Math.random() * 4 + "s";
-    container.appendChild(heart);
-    setTimeout(() => heart.remove(), 8000);
-  }, 500);
-}
-createHearts("hearts");
-createHearts("hearts2");
-
-function checkPassword() {
-  const password = document.getElementById("passwordInput").value;
-  if (password.toLowerCase() === "iloveyoukeith") {
-    document.getElementById("passwordScreen").classList.remove("active");
-    document.getElementById("letterScreen").classList.add("active");
-  } else {
-    alert("Wrong password, try again.");
-  }
-}
-</script>
-</body>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>For My Love</title>  
+<style>  
+  body, html {  
+    margin: 0;  
+    padding: 0;  
+    font-family: Arial, sans-serif;  
+    overflow: hidden;  
+  }  
+  .screen {  
+    display: none;  
+    width: 100%;  
+    height: 100vh;  
+    justify-content: center;  
+    align-items: center;  
+    flex-direction: column;  
+    position: absolute;  
+    top: 0;  
+    left: 0;  
+  }  
+  .active {  
+    display: flex;  
+  }  
+  
+  /* Animated gradient backgrounds */  
+  #homeScreen {  
+    background: linear-gradient(270deg, #ff9a9e, #fad0c4, #ffdde1);  
+    background-size: 600% 600%;  
+    animation: gradientBG 12s ease infinite;  
+  }  
+  #passwordScreen {  
+    background: linear-gradient(270deg, #a18cd1, #fbc2eb, #fad0c4);  
+    background-size: 600% 600%;  
+    animation: gradientBG 14s ease infinite;  
+  }  
+  #letterScreen {  
+    background: linear-gradient(270deg, #f6d365, #fda085, #fbc2eb);  
+    background-size: 600% 600%;  
+    animation: gradientBG 16s ease infinite;  
+    flex-direction: column;  
+    overflow-y: auto;  
+  }  
+  #wrongScreen {  
+    background: linear-gradient(270deg, #ffecd2, #fcb69f, #ffdde1);  
+    background-size: 600% 600%;  
+    animation: gradientBG 18s ease infinite;  
+  }  
+  @keyframes gradientBG {  
+    0% {background-position:0% 50%}  
+    50% {background-position:100% 50%}  
+    100% {background-position:0% 50%}  
+  }  
+  
+  h1, p {  
+    color: white;  
+    text-shadow: 0 0 8px rgba(0,0,0,0.4);  
+  }  
+  
+  /* Floating kaomojis home */  
+  .kaomoji {  
+    position: absolute;  
+    font-size: 28px;  
+    opacity: 0;  
+    animation: floatEmoji 8s linear infinite;  
+  }  
+  @keyframes floatEmoji {  
+    0% {transform: translateY(100vh) scale(0.5); opacity: 0;}  
+    20% {opacity: 1;}  
+    80% {opacity: 1;}  
+    100% {transform: translateY(-10vh) scale(1); opacity: 0;}  
+  }  
+  
+  /* Password input */  
+  input {  
+    padding: 10px;  
+    font-size: 18px;  
+    border-radius: 12px;  
+    border: none;  
+    outline: none;  
+    text-align: center;  
+    box-shadow: 0 0 12px rgba(255,255,255,0.5);  
+    transition: 0.3s;  
+  }  
+  input:focus {  
+    box-shadow: 0 0 20px rgba(255,105,180,0.8);  
+  }  
+  
+  button {  
+    margin-top: 15px;  
+    padding: 10px 20px;  
+    border: none;  
+    border-radius: 25px;  
+    background: #ff6f91;  
+    color: white;  
+    font-size: 16px;  
+    cursor: pointer;  
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);  
+    transition: 0.3s;  
+  }  
+  button:hover {  
+    transform: scale(1.1);  
+    background: #ff3c6f;  
+  }  
+  
+  /* Letter card */  
+  .letterCard {  
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,230,250,0.95));  
+    padding: 20px;  
+    border-radius: 20px;  
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);  
+    max-width: 600px;  
+    font-size: 18px;  
+    line-height: 1.6;  
+    text-align: left;  
+    position: relative;  
+    color: #444;  
+  }  
+  .letterCard p, .letterCard div {  
+    color: #4a3c58;  
+  }  
+  .letterCard strong {  
+    color: #e85a8c;  
+  }  
+  .letterCard em {  
+    color: #c77dff;  
+  }  
+  
+  /* Floating hearts */  
+  .heart {  
+    position: absolute;  
+    color: pink;  
+    font-size: 20px;  
+    animation: floatHearts 6s linear infinite;  
+  }  
+  @keyframes floatHearts {  
+    0% {transform: translateY(100vh) scale(0.5); opacity: 0;}  
+    30% {opacity: 1;}  
+    70% {opacity: 1;}  
+    100% {transform: translateY(-10vh) scale(1.2); opacity: 0;}  
+  }  
+  
+  /* Reveal section */  
+  .revealBtn {  
+    font-size: 26px;  
+    margin-top: 20px;  
+    cursor: pointer;  
+    animation: pulse 1.5s infinite;  
+    text-align: center;  
+  }  
+  @keyframes pulse {  
+    0% {color: #ff6f91;}  
+    50% {color: #ff3c6f;}  
+    100% {color: #ff6f91;}  
+  }  
+  
+  /* Wrong Screen layout */  
+  #wrongScreen .letterCard {  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    text-align: center;  
+  }  
+  .catEmoji {  
+    font-size: 40px;  
+    margin-bottom: 15px;  
+    animation: bounce 1s infinite;  
+  }  
+  @keyframes bounce {  
+    0%,100% {transform: translateY(0);}  
+    50% {transform: translateY(-10px);}  
+  }  
+  
+  /* Hint text */  
+  .hint {  
+    margin-top: 10px;  
+    color: #fff;  
+    font-size: 14px;  
+    opacity: 0.9;  
+  }  
+</style>  
+</head>  
+<body>  
+  <!-- Home -->  
+  <div id="homeScreen" class="screen active">  
+    <h1>Welcome My Love</h1>  
+    <button onclick="showScreen(passwordScreen)">Enter</button>  
+  </div>  
+  
+  <!-- Password -->  
+  <div id="passwordScreen" class="screen">  
+    <h1>Enter the Password</h1>  
+    <input type="password" id="passwordInput" placeholder="Enter password...">  
+    <button onclick="checkPassword()">Submit</button>  
+    <p class="hint">Hint: what i feel about you my love</p>  
+  </div>  
+  
+  <!-- Wrong -->  
+  <div id="wrongScreen" class="screen">  
+    <div class="letterCard">  
+      <span class="catEmoji" id="catEmoji"></span>  
+      <p style="font-weight:700; font-size:1.2em;">Wrong answer, my love. Try again!</p>  
+      <button onclick="showScreen(passwordScreen)">Back</button>  
+    </div>  
+  </div>  
+  
+  <!-- Letter -->  
+  <div id="letterScreen" class="screen">  
+    <div class="letterCard">  
+      <div id="revealSection">  
+        <div class="revealBtn" onclick="startLetter()">❤ Click here ❤</div>  
+      </div>  
+      <p id="letterText" style="display:none; white-space:pre-line;"></p>  
+    </div>  
+  </div>  
+  
+<script>  
+const homeScreen=document.getElementById('homeScreen');  
+const passwordScreen=document.getElementById('passwordScreen');  
+const wrongScreen=document.getElementById('wrongScreen');  
+const letterScreen=document.getElementById('letterScreen');  
+function showScreen(screen){  
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));  
+  screen.classList.add('active');  
+}  
+  
+// Password check  
+function checkPassword(){  
+  const val=document.getElementById('passwordInput').value;  
+  if(val==="iloveyoukeith"){ showScreen(letterScreen); }  
+  else{ showWrong(); }  
+}  
+  
+// Wrong screen cats  
+const catFaces=['ฅ^•ﻌ•^ฅ♡','(=^･ω･^=)♡','(=①ω①=)♡','(=^-ω-^=)♡','ฅ^._.^ฅ♡','(=^･^=)❤','(=ↀωↀ=)❤','(=✪ᆽ✪=)❤','(Ф∀Ф)❤'];  
+let catIndex=0; let catInterval;  
+function showWrong(){  
+  showScreen(wrongScreen);  
+  clearInterval(catInterval);  
+  catIndex=0;  
+  catInterval=setInterval(()=>{  
+    document.getElementById('catEmoji').textContent=catFaces[catIndex % catFaces.length];  
+    catIndex++;  
+  },1000);  
+}  
+  
+// Letter typing  
+const letter=`My dearest Keithy  
+  
+Hello :D my love Today is our anniversary  
+I actually wanna secretly hang out with you on this day, but it’s alright I might be far, but my heart is yours (•ㅅ•)♡  
+  
+Happy anniversary to us Ever since the day I met you, my days became warmer One message led to another, and music brought us closer From the start, I felt a connection only through you, my love (｡♥‿♥｡)  
+  
+I still remember the little beginnings with you The first time we talked, the excitement of every new message, the late night conversations where I didn’t want the night to end Our first interaction when we were both shy, our first hug, our first lunch together, our first walk, every little moment Each memory stays with me (／≧ㅅ≦)／  
+  
+I remembered when we first admitted our feelings, I felt like my whole world changed You were not just someone I admired anymore, you were my partner Since then, I’ve learned so much about love through you I’ve seen your strength, your kindness, and the quiet ways you show your love I’ve also seen your softer sides, the moments you thought you weren’t enough, but to me you always are (˶˃ ᵕ ˂˶)  
+  
+If I had to describe my type, it would only ever be you I love you so much You never fail to make me smile Even the smallest things you do stay with me A laugh, a glance, or a word from you can turn my day around (❀•́ ‿ •̀❀)  
+  
+You are my muse, my love, and the only one in my heart Every day with you feels like a gift, and I will always choose you again and again When I think about our journey together, I see not only the good times but also the challenges, and I’m proud that we face them together (´ ꒳ \` ✿)  
+  
+I’m excited for all the days ahead, for every memory we’ll share and memories we'll create in the future, more laughter, to more smiles, and more moments to treasure I’m proud of us, of the way we’ve grown, and of the love we continue to build together  
+ (づ๑•ᴗ•๑)づ♡  
+  
+With all my love  
+Jake`;  
+  
+function startLetter(){  
+  document.getElementById('revealSection').style.display="none";  
+  const letterText=document.getElementById('letterText');  
+  letterText.style.display="block";  
+  letterText.textContent="";  
+  let i=0;  
+  function type(){  
+    if(i<letter.length){  
+      letterText.textContent+=letter.charAt(i);  
+      i++;  
+      setTimeout(type,50);  
+    }  
+  }  
+  type();  
+  letterScreen.scrollTo({top:letterScreen.scrollHeight,behavior:"smooth"});  
+}  
+  
+// Floating emojis home  
+const emojis=["(=^･ω･^=)♡","ʕ•ᴥ•ʔ♡","(｡♥‿♥｡)","(✿◠‿◠)","(≧◡≦)♡","(•ө•)♡","(❁´◡`❁)","(=ＴェＴ=)♡"];  
+setInterval(()=>{  
+  const span=document.createElement("span");  
+  span.className="kaomoji";  
+  span.textContent=emojis[Math.floor(Math.random()*emojis.length)];  
+  span.style.left=Math.random()*100+"%";  
+  span.style.fontSize=(20+Math.random()*30)+"px";  
+  document.body.appendChild(span);  
+  setTimeout(()=>span.remove(),2000);  
+},1200);  
+  
+// Floating hearts letter  
+setInterval(()=>{  
+  const heart=document.createElement("div");  
+  heart.className="heart";  
+  heart.textContent="❤";  
+  heart.style.left=Math.random()*100+"%";  
+  heart.style.fontSize=(16+Math.random()*24)+"px";  
+  document.getElementById("letterScreen").appendChild(heart);  
+  setTimeout(()=>heart.remove(),6000);  
+},800);  
+</script>  
+</body>  
 </html>
